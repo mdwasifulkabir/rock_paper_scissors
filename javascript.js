@@ -17,5 +17,14 @@ function getComputerChoice() {
     }
     return choice;
 }
-console.log(getComputerChoice());
+
+//create a new function to get the player's choice
+function getPlayerChoice() {
+    let choice = prompt("Rock, Paper or Scissors?").toLowerCase();
+    return choice;
+}
+
+console.log(getPlayerChoice());
+//ask the user to input the choice
+//return the choice
 
