@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0
+
 //create a new function to get the computer choice
 function getComputerChoice() {
     //randomly generate a number between 1 and 3
@@ -20,11 +23,11 @@ function getComputerChoice() {
 
 //create a new function to get the player's choice
 function getPlayerChoice() {
+    //ask the user to input the choice
     let choice = prompt("Rock, Paper or Scissors?").toLowerCase();
+    //return the choice
     return choice;
 }
 
-console.log(getPlayerChoice());
-//ask the user to input the choice
-//return the choice
+
 
