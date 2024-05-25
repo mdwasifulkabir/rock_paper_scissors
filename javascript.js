@@ -78,6 +78,7 @@ function playGame() {
         const humanChoice = getPlayerChoice();
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
+        console.log("Your Score: ", humanScore, " Computer Score: ", computerScore);
     }
     if (humanScore > computerScore) {
         console.log("You won the game!");
