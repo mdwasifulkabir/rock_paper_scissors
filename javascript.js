@@ -74,20 +74,31 @@ function playGame() {
             }
         }
     }
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getPlayerChoice();
+    
+    const rock = document.querySelector("#rock");
+    const paper = document.querySelector("#paper");
+    const scissors = document.querySelector("#scissors");
+
+    const buttons = document.querySelector("#buttons");
+    buttons.addEventListener("click", (e) => {
+        let target = e.target;
         const computerChoice = getComputerChoice();
+        const humanChoice = target.id;
+
         playRound(humanChoice, computerChoice);
         console.log("Your Score: ", humanScore, " Computer Score: ", computerScore);
-    }
-    if (humanScore > computerScore) {
-        console.log("You won the game!");
-    }
-    else if (humanScore < computerScore) {
-        console.log("You lost the game!");
-    }
-    else {
-        console.log("No way! It's a draw!")
+    })
+
+    if(humanScore !== 0 || computerScore !== 0) {
+        if (humanScore > computerScore) {
+            console.log("You won the game!");
+        }
+        else if (humanScore < computerScore) {
+            console.log("You lost the game!");
+        }
+        else {
+            console.log("No way! It's a draw!");
+        }
     }
 }
 
