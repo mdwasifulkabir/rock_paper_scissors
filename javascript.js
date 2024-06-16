@@ -75,10 +75,7 @@ function playGame() {
         }
     }
     
-    const rock = document.querySelector("#rock");
-    const paper = document.querySelector("#paper");
-    const scissors = document.querySelector("#scissors");
-
+    const result = document.querySelector("#result");
     const buttons = document.querySelector("#buttons");
     buttons.addEventListener("click", (e) => {
         let target = e.target;
@@ -86,7 +83,7 @@ function playGame() {
         const humanChoice = target.id;
 
         playRound(humanChoice, computerChoice);
-        console.log("Your Score: ", humanScore, " Computer Score: ", computerScore);
+        result.textContent = "Your Score: "+ +humanScore+ " Computer Score: "+ +computerScore
     })
 
     if(humanScore !== 0 || computerScore !== 0) {
