@@ -1,1 +1,1 @@
-This is a simple rock-paper-scissors game that will be played on the console.
+This is a simple rock-paper-scissors game with basic UI to learn DOM manipulation following The Odin Project.
