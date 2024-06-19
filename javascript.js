@@ -1,3 +1,7 @@
+let humanScore = 0;
+let computerScore = 0;
+let gameOver = false;
+
 //create a new function to get the computer choice
 function getComputerChoice() {
     //randomly generate a number between 1 and 3
@@ -25,11 +29,9 @@ function getPlayerChoice() {
     //return the choice
     return choice;
 }
-let humanScore = 0;
-let computerScore = 0;
+
 //create a function to play the entire game
 function playGame() {
-    
     
     //create a new function to play a round
     function playRound(humanChoice, computerChoice) {
@@ -81,27 +83,40 @@ function playGame() {
     const score = document.querySelector("#score");
     const buttons = document.querySelector("#buttons");
     const endResult = document.querySelector("#endResult");
+    const retryButton = document.createElement("button");
+    retryButton.classList.add("button");
+    retryButton.textContent = "Retry";
 
     buttons.addEventListener("click", (e) => {
-        let target = e.target;
-        const computerChoice = getComputerChoice();
-        const humanChoice = target.id;
+        if (!gameOver) {
+            let target = e.target;
+            const computerChoice = getComputerChoice();
+            const humanChoice = target.id;
 
-        playRound(humanChoice, computerChoice);
-        score.textContent = "Your score: "+ humanScore+ " Computer score: "+ computerScore;
-        
+            playRound(humanChoice, computerChoice);
+            score.textContent = "Your score: "+ humanScore+ " Computer score: "+ computerScore;
+            
             if (humanScore === 5 || computerScore === 5) {
-            if (humanScore > computerScore) {
-                endResult.textContent = "You won the game!";
-            }
-            else {
-                endResult.textContent = "You lost the game!";
+                gameOver = true;
+                document.body.appendChild(retryButton);
+                if (humanScore > computerScore) {
+                    endResult.textContent = "You won the game!";
+                }
+                else {
+                    endResult.textContent = "You lost the game!";
+                }
             }
         }
     });
-
     
-
+    retryButton.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
+        score.textContent = "Your score: 0 Computer Score: 0";
+        roundResult.textContent = "Choose Rock, Paper or Scissors to Start the Game!"
+        gameOver = false;
+        document.body.removeChild(retryButton);
+    });
 }
 score.textContent = "Your score: 0 Computer Score: 0";
 playGame();

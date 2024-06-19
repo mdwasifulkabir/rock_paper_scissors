@@ -8,7 +8,7 @@ body {
     gap: 50px;
 }
 
-button {
+.button {
     background-color: #3882F6;
     color: #f0f2f7;
     padding: 15px;
