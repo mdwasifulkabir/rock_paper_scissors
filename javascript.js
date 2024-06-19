@@ -25,11 +25,11 @@ function getPlayerChoice() {
     //return the choice
     return choice;
 }
-
+let humanScore = 0;
+let computerScore = 0;
 //create a function to play the entire game
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
+    
     
     //create a new function to play a round
     function playRound(humanChoice, computerChoice) {
@@ -40,7 +40,7 @@ function playGame() {
         if(humanChoice === computerChoice) {
             roundResult.textContent = "It's a draw!";
         }
-        if(humanChoice === "rock") {
+        else if(humanChoice === "rock") {
             switch(computerChoice) {
                 case "paper":
                     computerScore += 1;
@@ -89,16 +89,19 @@ function playGame() {
 
         playRound(humanChoice, computerChoice);
         score.textContent = "Your score: "+ humanScore+ " Computer score: "+ computerScore;
-
-        if (humanScore == 5 || computerScore == 5) {
+        
+            if (humanScore === 5 || computerScore === 5) {
             if (humanScore > computerScore) {
-                endResult.TextContent = "You won the game!";
+                endResult.textContent = "You won the game!";
             }
-            else if (humanScore < computerScore) {
+            else {
                 endResult.textContent = "You lost the game!";
             }
         }
     });
+
+    
+
 }
 score.textContent = "Your score: 0 Computer Score: 0";
 playGame();
